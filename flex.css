@@ -1,0 +1,21 @@
+.container{
+    width: 150px;
+    height: 150px;
+    font-size: 8em;
+    text-align: center;
+}
+.box{
+    
+}
+.box .box1{
+     background-color: red;
+}
+.box .box2{
+    background-color: blue;
+}
+.box .box3{
+    background-color: purple;
+}
+.box .box4{
+    background-color:yellow;
+}
