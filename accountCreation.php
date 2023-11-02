@@ -1,60 +1,64 @@
+<?php
+include("connectDatabase.php");
+$error = ""; 
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
+            $confirmPassword = filter_input(INPUT_POST, "confirmPassword", FILTER_SANITIZE_SPECIAL_CHARS);
+            $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_SPECIAL_CHARS);
+
+            if ($confirmPassword == $password) {
+                //Added an if statment since it keeps adding shit with each refres
+                //previous statement
+                if (!empty($username) && !empty($password) && !empty($email)) {
+                    //Check quert first if the username and email is unique 
+                    $checkQuery = "SELECT COUNT(*) FROM tblaccounts WHERE userName = '$username' OR userEmail = '$email'";
+                    $result = mysqli_query($conn, $checkQuery);
+                    $count = mysqli_fetch_row($result)[0];
+
+                    if ($count == 0) {
+                        $hash = password_hash($password, PASSWORD_DEFAULT);
+                        $sql = "INSERT INTO tblaccounts (userName, userPassword, userEmail)
+                            VALUES('$username', '$hash', '$email')";
+                        mysqli_query($conn, $sql);
+                        echo "Account Created";
+                    } else {
+                        $error = "Username or email already exists";
+                    }
+                }
+            } else {
+                $error = "Password not the same";
+            }
+        }
+
+    mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Account Registration</title>
+    <link rel="stylesheet" type="text/css" href="accountCreation.css"/>
 </head>
 <body>
-    <h2>Account Registration</h2>
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-        <label for="username">Username:</label>
-        <input type="text" name="username" id="username" required>
-        <br><br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required>
-        <br><br>
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" required>
-        <br><br>
-        <input type="submit" value="Register">
-    </form>
+    <div class="creatAccount">
+        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">      
+            <label for="error" id="errorLabel"><?php echo $error; ?></label>
+            <label for="username">Username:</label>
+            <input type="text" name="username" autocomplete="off" placeholder="Enter Username." required>
+            <label for="password">Password:</label>
+            <input type="password" name="password" autocomplete="off" placeholder="Enter Password." required>
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" name="confirmPassword" autocomplete="off" placeholder="Enter Password." required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" autocomplete="off" placeholder="Enter Email." required>
+            <input type="submit" value="Register">  
+        </form>
+        <div class="logo">
+            <img alt="logo" src="https://raw.githubusercontent.com/Aceship/Arknight-Images/main/factions/logo_iberia.png">
+            <div>
+                <span>IBERIA</span>
+            </div>        
+        </div>
+    </div>
 </body>
 </html>
-
-<?php    
-    include("connectDatabase.php");
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $username = $_POST["username"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
-
-
-    $errors = [];
-    if (empty($username)) {
-        $errors[] = "Username is required.";
-    }
-    if (empty($password)) {
-        $errors[] = "Password is required.";
-    }
-    if (empty($email)) {
-        $errors[] = "Email is required.";
-    }
-}
-
-    if (empty($errors)) {
-        $sql = "INSERT INTO tblaccounts (userName, userPassword, userEmail) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $username, $hashedPassword, $email);
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        $stmt->execute();
-        echo "Registration successful!";
-
-        $stmt->close();
-    } else {
-        foreach ($errors as $error) {
-            echo $error . "<br>";
-        }
-    }
-    mysqli_close($conn);
-?>

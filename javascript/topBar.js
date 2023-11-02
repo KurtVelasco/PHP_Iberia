@@ -1,5 +1,7 @@
 document.querySelector('.dropdown-button').addEventListener('click', toggleDropdownMenu);
-document.querySelector('.login-button').addEventListener('click', toggleLoginMenu);
+document.getElementById('loginButton').addEventListener('click', toggleLoginMenu);
+
+
 
 
 function toggleDropdownMenu() {
