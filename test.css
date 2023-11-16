@@ -95,20 +95,29 @@
 }
 /**************/
 
+.sidebar-logo{
+  color: var(--text-secondary);
+  background: var(--bg-secondary);
+  font-size: 1.5rem;
+  letter-spacing: 0.3ch;
+  width: 100%;
+}
 .sidebar-logo svg{
+    position: absolute;
     width: 100%;
     transition: var(--transition-speed);  
-    align-self: center;
 }
-.sidebar-logo .span{
+.sidebar-logo  span{
     position: absolute;
-    left: -100;
+    transition: var(--transition-speed);  
+    left: -999px;
 }
 .sidebar-container:hover .sidebar-logo svg{
     transform: rotate(360deg);
+    margin-left: 4.5rem;
 }
 .sidebar-container:hover .sidebar-logo span{
-    position: relative;
+    left: 0.3rem;
 }
 
 .sidebar-container{

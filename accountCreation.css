@@ -1,23 +1,54 @@
-
-.creatAccount {
+.meme{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+.createAccount {
+    padding: 2.0rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    background-color: rgba(44, 44, 44, 1.0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.specter{
     position: absolute;
-    top: 50%;
+    top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 300px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: rgb(44, 44, 44);
+    z-index: -1;
+    height: 30%;
+    
+}
+.account-logo{
+    padding: 1rem;
+    align-items: center;
+    font-size: 1rem;
+    gap: 0.3rem;
+    background-color: transparent;
+    border: 0;
+    color: #c7c7c7;
+    transition: var(--transition-speed);
+    text-decoration: none;
 }
 form {
     color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .logo{
     display: flex;
     align-items: center;
     height: 5rem;
+}
+.trademark{
+    display: flex;
+    align-items: center;
+    height: 2.5rem;
+}
+.trademark img{
+    height: 100%; 
 }
 .logo img{
     height: 100%;
@@ -27,22 +58,23 @@ form {
     color: rgb(230, 219, 219);
 }
 
-.creatAccount label {
+.createAccount label {
     display: block;
     margin-bottom: 10px;
+    align-self: flex-start;
 }
 
-.creatAccount input[type="text"],
-.creatAccount input[type="password"],
-.creatAccount input[type="email"] {
+.createAccount input[type="text"],
+.createAccount input[type="password"],
+.createAccount input[type="email"] {
     width: 100%;
-    padding: 8px;
+    padding: 0.5rem;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: 0.5rem;
 }
 
-.creatAccount input[type="submit"] {
+.createAccount input[type="submit"] {
     width: 100%;
     padding: 10px;
     background-color: #4CAF50;
@@ -52,6 +84,7 @@ form {
     cursor: pointer;
 }
 
-.creatAccount input[type="submit"]:hover {
+.createAccount input[type="submit"]:hover {
     background-color: #45a049;
 }
+
