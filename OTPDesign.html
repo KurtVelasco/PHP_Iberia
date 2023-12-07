@@ -1,0 +1,86 @@
+
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .top-logo{
+            display: flex;
+            align-items: center;
+            height: 5rem;
+            background-color: rgb(43, 43, 43);
+        }
+        .top-logo img{
+            height: 100%;
+        }
+        .top-logo span{
+            font-family: Open sans-serif;
+            font-size: 3rem;
+            color: white;
+        }
+
+
+        .content {
+            padding: 30px;
+        }
+
+        .otp-code {
+            font-size: 24px;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .instructions {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555555;
+        }
+
+        .footer {
+            position: relative;
+            background-color: rgb(43, 43, 43);
+            color: #ffffff;
+            padding: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;         
+        }
+        .footer img {
+            position: absolute;
+            bottom: -20px;
+            right: -50px;
+            max-width: 200px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-logo">
+            <img alt="logo" src="https://raw.githubusercontent.com/Aceship/Arknight-Images/main/factions/logo_iberia.png">
+            <div>
+                <span>IBERIA</span>
+            </div>        
+        </div>
+        <div class="content">
+            <p>Hello [User],</p>
+            <p>Your One-Time Password (OTP) is:</p>
+            <p class="otp-code">123456</p>
+            <p class="instructions">Never Share your OTP you have 30 secs to comply or be killed</p>
+        </div>
+        <div class="footer">
+            <p>JOIN OUR CULT OF SKADI</p>
+            <img src="https://webusstatic.yo-star.com/ark_us_web/assets/166859053424210735/13a6e5b04e45a031e8376c37c60fb816.png" alt="Your Logo">
+        </div>
+    </div>
+</body>

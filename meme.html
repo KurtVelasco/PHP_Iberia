@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .parent {
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      height: 50px; /* Adjust the height as needed */
+    }
+
+    .child {
+      position: relative;
+      width: 100px;
+      height: 50px;
+      border: 1px solid black;
+      background-color: lightgray; /* Set the background color here */
+    }
+
+    .centered {
+      display: flex;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .centered-inside {
+      flex-grow: 1; /* Take up all available space */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+    }
+
+    .centered-inside.one {
+      background-color: red;
+    }
+
+    .centered-inside.two {
+      background-color: yellow;
+    }
+
+    .centered-inside.three {
+      background-color: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="child centered">
+      <div class="centered-inside one">1</div>
+      <div class="centered-inside two">2</div>
+      <div class="centered-inside three">3</div>
+    </div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <!-- Add more children here -->
+  </div>
+</body>
+</html>

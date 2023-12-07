@@ -47,6 +47,13 @@ form {
     align-items: center;
     height: 2.5rem;
 }
+.trademark a{
+    color: white;
+}
+.stupid-checkbox{
+    display: block;
+    background-color: red;
+}
 .trademark img{
     height: 100%; 
 }
