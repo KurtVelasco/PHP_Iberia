@@ -34,9 +34,6 @@
 }
 
 .topbar{
-    display: flex;
-    justify-content: space-between; /* Adjust as needed */
-    align-items: center;
     height: 7.5vh;
     background-color: #FFF4DB;
     width: 100%;
@@ -44,10 +41,19 @@
     top: 0;
     position: relative;
     transition: var(--transition-speed);
-    position: relative;
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+.topbar-icon{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+.topbar-newsheader{
+    position: absolute;
+    width: 50%;
+    transform: translateX(-93%);
 }
 .topbar-logo{
     display: flex;
@@ -166,6 +172,7 @@
     font-family: monospace;
     left: -999px;
     overflow: hidden;
+    font-size: 15px;
 }
 .sidebar-container:hover .sidebar-logo svg{
     transform: rotate(360deg);
@@ -176,7 +183,7 @@
 }
 
 .sidebar-container{
-    border-radius: 5px;
+    border-radius: 10px;
     width: 3rem;
     height: 100%;
     position: fixed;
@@ -267,13 +274,14 @@
  align-self: center;
  opacity: 1;
  color:#3a3a3a; ;
- writing-mode: vertical-rl;
  font-family: monospace;
- white-space: nowrap; /* Prevent text from wrapping */
- overflow: hidden; /* Hide overflow content */
- display: inline-block; /* Display as inline block */
+ white-space: nowrap; 
+ overflow: hidden; 
+ display: inline-block; 
  animation: typing 1s steps(40) infinite; 
-
+}
+#sideText{
+    writing-mode: vertical-rl;
 }
 
 
