@@ -7,16 +7,25 @@
     --bg-secondary: #141418;
     --transition-speed: 450ms;
 }
+body {
+    margin: 0; /* Remove default body margin */
+    overflow: hidden; /* Hide any potential scrollbar on the body */
+}
+
 .meme{
     display: flex;
     justify-content: center; 
     align-items: center; 
-    height: 100vh; 
+    height: 100vh;
 }
 .method-post label{
     font-family: monospace;
 }
 .createAccount {
+    background: linear-gradient(to right, #65A98F 0%, #65A98F 33.33%, #FF8C00 33.33%, #FF8C00 66.66%, #A93400 66.66%, #A93400 100%);
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
     padding: 2.0rem;
     width: 300px;
     border-radius: 0.5rem;
@@ -68,7 +77,7 @@ form {
     height: 2.5rem;
 }
 .trademark a{
-    color: white;
+    color: rgb(8, 2, 2);
 }
 .stupid-checkbox{
     display: -webkit-inline-box;
@@ -96,7 +105,7 @@ form {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #c4b1b1;
     border-radius: 0.5rem;
 }
 
